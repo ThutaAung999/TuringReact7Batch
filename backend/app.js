@@ -9,11 +9,15 @@ var usersRouter = require('./routes/users');
 
 var todoRouter = require('./routes/todos');
 
+  let customLogger = require('./middleware/logger');
+
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+app.use(customLogger.logger);
 
 app.use(logger('dev'));
 app.use(express.json());
