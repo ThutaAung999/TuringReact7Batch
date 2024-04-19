@@ -16,7 +16,7 @@ const verifyUserToken = (req, res, next) => {
         let verifiedUser = jwt.verify(token, config.TOKEN_SECRET);   // config.TOKEN_SECRET => 'secretKey'
         if (!verifiedUser) return res.status(401).send('Unauthorized request')
 
-        req.user = verifiedUser; // user_id
+        req.user = verifiedUser; // user_id    , payload ပြန်ပေးလိုက်တာပါပဲ
         next();
 
     } catch (error) {
